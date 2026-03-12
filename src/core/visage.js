@@ -251,7 +251,6 @@ export class Visage {
         const minDelaySeconds = activeEffects.length ? Math.min(0, ...activeEffects.map((e) => e.delay || 0)) : 0;
         const offsetMS = Math.abs(minDelaySeconds) * 1000;
 
-        if (VisageTokenMagic.isActive) await VisageTokenMagic.revert(token);
         // Visual and Audio effects natively handle their own start times (including positive delays)
         // inside VisageSequencer, so we always fire them immediately.
         runVisualFX();
